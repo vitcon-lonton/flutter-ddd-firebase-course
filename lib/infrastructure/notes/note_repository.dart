@@ -1,10 +1,10 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:injectable/injectable.dart';
 import 'package:dartz/dartz.dart';
+import 'package:injectable/injectable.dart';
 import 'package:kt_dart/kt.dart';
 import 'package:notes_firebase_ddd_course/domain/notes/i_note_repository.dart';
-import 'package:notes_firebase_ddd_course/domain/notes/note_failure.dart';
 import 'package:notes_firebase_ddd_course/domain/notes/note.dart';
+import 'package:notes_firebase_ddd_course/domain/notes/note_failure.dart';
 import 'package:notes_firebase_ddd_course/infrastructure/core/firestore_helpers.dart';
 import 'package:notes_firebase_ddd_course/infrastructure/notes/note_dtos.dart';
 import 'package:rxdart/rxdart.dart';

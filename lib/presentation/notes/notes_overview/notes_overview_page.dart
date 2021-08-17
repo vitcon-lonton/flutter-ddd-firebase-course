@@ -4,7 +4,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:notes_firebase_ddd_course/application/auth/auth_bloc.dart';
 import 'package:notes_firebase_ddd_course/application/notes/note_actor/note_actor_bloc.dart';
 import 'package:notes_firebase_ddd_course/application/notes/note_watcher/note_watcher_bloc.dart';
-import 'package:notes_firebase_ddd_course/domain/notes/note.dart';
 import 'package:notes_firebase_ddd_course/injection.dart';
 import 'package:notes_firebase_ddd_course/presentation/notes/notes_overview/widgets/notes_overview_body_widget.dart';
 import 'package:notes_firebase_ddd_course/presentation/notes/notes_overview/widgets/uncompleted_switch.dart';
@@ -43,7 +42,7 @@ class NotesOverviewPage extends StatelessWidget {
                     content: Text(
                       state.noteFailure.map(
                         unexpected: (_) =>
-                            'Unexpected error occured while deleting, please contact support.',
+                            'Unexpected error occurred while deleting, please contact support.',
                         insufficientPermission: (_) =>
                             'Insufficient permissions ❌',
                         unableToUpdate: (_) => 'Impossible error',

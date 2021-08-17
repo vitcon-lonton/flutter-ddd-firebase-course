@@ -2,11 +2,11 @@ import 'dart:ui';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:kt_dart/kt.dart';
 import 'package:notes_firebase_ddd_course/domain/core/value_objects.dart';
 import 'package:notes_firebase_ddd_course/domain/notes/note.dart';
 import 'package:notes_firebase_ddd_course/domain/notes/todo_item.dart';
 import 'package:notes_firebase_ddd_course/domain/notes/value_objects.dart';
-import 'package:kt_dart/kt.dart';
 
 part 'note_dtos.freezed.dart';
 part 'note_dtos.g.dart';
