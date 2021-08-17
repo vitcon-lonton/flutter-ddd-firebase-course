@@ -15,23 +15,26 @@ part 'note_dtos.g.dart';
 abstract class NoteDto implements _$NoteDto {
   const NoteDto._();
 
-  const factory NoteDto(
-      {@JsonKey(ignore: true) String? id,
-      required String body,
-      required int color,
-      required List<TodoItemDto>? todos}) = _NoteDto;
+  const factory NoteDto({
+    // ignore: invalid_annotation_target
+    @JsonKey(ignore: true) String? id,
+    required String body,
+    required int color,
+    required List<TodoItemDto>? todos,
+  }) = _NoteDto;
 
   factory NoteDto.fromDomain(Note note) {
     return NoteDto(
-        id: note.id.getOrCrash(),
-        body: note.body.getOrCrash(),
-        color: note.color.getOrCrash().value,
-        todos: note.todos
-            .getOrCrash()
-            .map(
-              (todoItem) => TodoItemDto.fromDomain(todoItem),
-            )
-            .asList());
+      id: note.id.getOrCrash(),
+      body: note.body.getOrCrash(),
+      color: note.color.getOrCrash().value,
+      todos: note.todos
+          .getOrCrash()
+          .map(
+            (todoItem) => TodoItemDto.fromDomain(todoItem),
+          )
+          .asList(),
+    );
   }
 
   Note toDomain() {

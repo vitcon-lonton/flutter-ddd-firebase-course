@@ -51,8 +51,10 @@ class NoteRepository implements INoteRepository {
         .map(
           (notes) => right<NoteFailure, KtList<Note>>(
             notes
-                .where((note) =>
-                    note.todos.getOrCrash().any((todoItem) => !todoItem.done))
+                .where(
+                  (note) =>
+                      note.todos.getOrCrash().any((todoItem) => !todoItem.done),
+                )
                 .toImmutableList(),
           ),
         )

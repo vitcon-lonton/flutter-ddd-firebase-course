@@ -39,7 +39,7 @@ class TodoList extends StatelessWidget {
         builder: (context, formTodos, child) {
           return ImplicitlyAnimatedReorderableList<TodoItemPrimitive>(
             shrinkWrap: true,
-            removeDuration: const Duration(),
+            removeDuration: Duration.zero,
             items: formTodos.value.asList(),
             areItemsTheSame: (oldItem, newItem) => oldItem.id == newItem.id,
             onReorderFinished: (item, from, to, newItems) {

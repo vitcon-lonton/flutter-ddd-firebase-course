@@ -19,34 +19,30 @@ class BodyField extends HookWidget {
         textEditingController.text = state.note.body.getOrCrash();
       },
       child: Padding(
-          padding: const EdgeInsets.all(10),
-          child: TextFormField(
-            controller: textEditingController,
-            decoration: const InputDecoration(
-              labelText: 'Note',
-              counterText: '',
-            ),
-            maxLength: NoteBody.maxLength,
-            maxLines: null,
-            minLines: 5,
-            onChanged: (value) => context
-                .read<NoteFormBloc>()
-                .add(NoteFormEvent.bodyChanged(value)),
-            validator: (_) => context
-                .read<NoteFormBloc>()
-                .state
-                .note
-                .body
-                .value
-                .fold(
-                  (f) => f.maybeMap(
-                    empty: (f) => 'Cannot be empty',
-                    exceedingLength: (f) => 'Exceeding length, max: ${f.max}',
-                    orElse: () => null,
+        padding: const EdgeInsets.all(10),
+        child: TextFormField(
+          controller: textEditingController,
+          decoration: const InputDecoration(
+            labelText: 'Note',
+            counterText: '',
+          ),
+          maxLength: NoteBody.maxLength,
+          maxLines: null,
+          minLines: 5,
+          onChanged: (value) => context
+              .read<NoteFormBloc>()
+              .add(NoteFormEvent.bodyChanged(value)),
+          validator: (_) =>
+              context.read<NoteFormBloc>().state.note.body.value.fold(
+                    (f) => f.maybeMap(
+                      empty: (f) => 'Cannot be empty',
+                      exceedingLength: (f) => 'Exceeding length, max: ${f.max}',
+                      orElse: () => null,
+                    ),
+                    (r) => null,
                   ),
-                  (r) => null,
-                ),
-          )),
+        ),
+      ),
     );
   }
 }

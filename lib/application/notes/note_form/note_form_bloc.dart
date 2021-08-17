@@ -1,21 +1,20 @@
 import 'dart:async';
 import 'dart:ui';
 
-import 'package:bloc/bloc.dart';
 import 'package:dartz/dartz.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 import 'package:kt_dart/kt.dart';
-import 'package:meta/meta.dart';
 import 'package:notes_firebase_ddd_course/domain/notes/i_note_repository.dart';
 import 'package:notes_firebase_ddd_course/domain/notes/note.dart';
 import 'package:notes_firebase_ddd_course/domain/notes/note_failure.dart';
 import 'package:notes_firebase_ddd_course/domain/notes/value_objects.dart';
 import 'package:notes_firebase_ddd_course/presentation/notes/note_form/misc/todo_item_presentation_classes.dart';
 
+part 'note_form_bloc.freezed.dart';
 part 'note_form_event.dart';
 part 'note_form_state.dart';
-part 'note_form_bloc.freezed.dart';
 
 @injectable
 class NoteFormBloc extends Bloc<NoteFormEvent, NoteFormState> {
